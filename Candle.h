@@ -13,12 +13,13 @@ Generates 8-bit candle-like brightness values.
 class Candle
 {
   public:
-    Candle(uint8_t brightness_min, uint8_t steps_min, uint8_t steps_max);
+    Candle(uint8_t brightness_min, uint8_t brightness_max, uint8_t steps_min, uint8_t steps_max);
     uint8_t get_next_brightness();
 
   private:
     uint8_t
         _brightness_min,
+        _brightness_max,
         _steps_min,
         _steps_max,
         _brightness,
