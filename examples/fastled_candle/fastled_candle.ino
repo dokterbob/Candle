@@ -6,7 +6,7 @@ white noise. */
 #include <Candle.h>
 
 // How many leds in your strip?
-#define NUM_LEDS 40
+#define NUM_LEDS 41
 
 // For led chips like Neopixels, which have a data line, ground, and power, you just
 // need to define DATA_PIN.  For led chipsets that are SPI based (four wires - data, clock,
@@ -42,15 +42,15 @@ void setup() {
     // FastLED.addLeds<SM16716, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
     // FastLED.addLeds<LPD8806, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
 
-    for (size_t i; i<NUM_LEDS; i++) {
+    for (size_t i=0; i<NUM_LEDS; i++) {
         // Reset LED values
         leds[i] = CRGB::Black;
 
         // Initialize candles
-        candles[i] = new Candle(random8(34, 96), random8(2, 6), random8(8, 20));
+        candles[i] = new Candle(random8(16, 96), random8(3, 8), random8(6, 22));
 
         // Initialize random hues
-        hues[i] = random8(32, 48);
+        hues[i] = random8(24, 32);
     }
 
     FastLED.show();
@@ -62,13 +62,11 @@ void setup() {
 
 void loop() {
     candleLoop();
-
-    delay(1);
 }
 
 void candleLoop() {
     if (candle_timer.check() == 1) {
-        for (size_t i; i<NUM_LEDS; i++) {
+        for (size_t i=0; i<NUM_LEDS; i++) {
             leds[i] = CHSV(hues[i], 255, candles[i]->get_next_brightness());
         }
 
