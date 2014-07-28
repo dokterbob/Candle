@@ -2,14 +2,15 @@
 #include <FastLED.h>
 
 
-Candle::Candle(uint8_t brightness_min, uint8_t brightness_max, uint8_t steps_min, uint8_t steps_max) :
-    _brightness_min(brightness_min),
-    _brightness_max(brightness_max),
-    _steps_min(steps_min),
-    _steps_max(steps_max),
-    _step(0),
-    _steps(0),
-    _brightness(0) {};
+void Candle::init(uint8_t brightness_min, uint8_t brightness_max, uint8_t steps_min, uint8_t steps_max) {
+    _brightness_min = brightness_min;
+    _brightness_max = brightness_max;
+    _steps_min = steps_min;
+    _steps_max = steps_max;
+    _step = 0;
+    _steps = 0;
+    _brightness = 0;
+}
 
 
 uint8_t Candle::get_next_brightness() {
