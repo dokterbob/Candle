@@ -1,0 +1,2 @@
+Candle              KEYWORD1
+get_next_brightness KEYWORD2
