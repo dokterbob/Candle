@@ -11,8 +11,8 @@ white noise. */
 
 CRGB leds[NUM_STRIPS * NUM_LEDS_PER_STRIP];
 
-Candle candles[NUM_LEDS];
-Candle saturation[NUM_LEDS];
+candle::Candle candles[NUM_LEDS];
+candle::Candle saturation[NUM_LEDS];
 
 byte hues[NUM_LEDS];
 
