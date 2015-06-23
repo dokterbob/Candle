@@ -7,9 +7,9 @@ white noise. */
 
 #define CANDLE_TICK_TIME 20
 
-Candle candle1(96, 255, 2, 20);
-Candle candle2(34, 255, 4, 10);
-Candle candle3(64, 255, 6, 8);
+candle::Candle candle1(96, 255, 2, 20);
+candle::Candle candle2(34, 255, 4, 10);
+candle::Candle candle3(64, 255, 6, 8);
 
 Metro candle_timer = Metro(CANDLE_TICK_TIME);
 

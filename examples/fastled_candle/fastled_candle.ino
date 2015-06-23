@@ -16,7 +16,7 @@ white noise. */
 
 // Define the array of leds
 CRGB leds[NUM_LEDS];
-Candle *candles[NUM_LEDS], *saturation[NUM_LEDS];
+candle::Candle *candles[NUM_LEDS], *saturation[NUM_LEDS];
 byte hues[NUM_LEDS];
 
 #define CANDLE_TICK_TIME 20
