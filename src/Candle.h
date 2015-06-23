@@ -1,5 +1,5 @@
 /*
-Candle simulation library.
+Arduino library for simulating candles.
 
 Generates 8-bit candle-like brightness values.
 */
