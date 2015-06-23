@@ -1,4 +1,5 @@
-#include <Candle.h>
+#include "Candle.h"
+#include "Arduino.h"
 #include <FastLED.h>
 
 
