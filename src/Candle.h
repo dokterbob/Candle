@@ -1,5 +1,5 @@
 /*
-Arduino library for simulating candles.
+Candle simulation library.
 
 Generates 8-bit candle-like brightness values.
 */
@@ -11,10 +11,11 @@ Generates 8-bit candle-like brightness values.
 #include <FastLED.h>
 
 namespace candle {
+
     class Candle
     {
       public:
-        Candle(uint8_t brightness_min, uint8_t brightness_max, uint8_t steps_min, uint8_t steps_max);
+        void init(uint8_t brightness_min, uint8_t brightness_max, uint8_t steps_min, uint8_t steps_max);
         uint8_t get_next_brightness();
 
       private:
@@ -29,6 +30,7 @@ namespace candle {
         int16_t
             _brightness_delta;
     };
+
 }
 
 #endif
