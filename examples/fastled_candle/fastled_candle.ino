@@ -16,7 +16,10 @@ white noise. */
 
 // Define the array of leds
 CRGB leds[NUM_LEDS];
-candle::Candle *candles[NUM_LEDS], *saturation[NUM_LEDS];
+
+candle::Candle candles[NUM_LEDS];
+candle::Candle saturation[NUM_LEDS];
+
 byte hues[NUM_LEDS];
 
 #define CANDLE_TICK_TIME 20
@@ -47,11 +50,12 @@ void setup() {
         leds[i] = CRGB::Black;
 
         // Initialize candles
-        candles[i] = new Candle(random8(16, 96), 255, random8(3, 8), random8(6, 22));
+        candles[i].init(random8(16, 96), 255, random8(3, 8), random8(6, 22));
 
         // Initialize random hues and saturation
         hues[i] = random8(24, 32);
-        saturation[i] = new Candle(random8(112, 240), random8(241, 255), random8(10, 20), random8(22, 62));
+        saturation[i].init(random8(112, 240), random8(241, 255), random8(10, 20), random8(22, 62));
+
     }
 
     FastLED.show();
@@ -68,7 +72,7 @@ void loop() {
 void candleLoop() {
     if (candle_timer.check() == 1) {
         for (size_t i=0; i<NUM_LEDS; i++) {
-            leds[i] = CHSV(hues[i], saturation[i]->get_next_brightness(), candles[i]->get_next_brightness());
+            leds[i] = CHSV(hues[i], saturation[i].get_next_brightness(), candles[i].get_next_brightness());
         }
 
         FastLED.show();
