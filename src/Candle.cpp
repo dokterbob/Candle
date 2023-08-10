@@ -28,7 +28,7 @@ namespace candle {
 
             // Update candle steps
             _steps = random8(
-                _steps_min, max(new_brightness - _brightness, _steps_max)
+                _steps_min, max(sub8(new_brightness, _brightness), _steps_max)
             );
 
             // Amount of change for every step
